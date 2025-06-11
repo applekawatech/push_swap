@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "push_stack.h"
 
 void	quick_sort(int a[], int min, int max)
 {
@@ -40,3 +41,4 @@ void	quick_sort(int a[], int min, int max)
 	if (l < max)
 		quick_sort(a, l, max);
 }
+
