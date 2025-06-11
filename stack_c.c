@@ -1,41 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   stack_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/03 12:34:38 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/06/08 17:18:33 by hkawaguc         ###   ########.fr       */
+/*   Created: 2025/06/08 17:13:26 by hkawaguc          #+#    #+#             */
+/*   Updated: 2025/06/09 13:42:20 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_stack.h"
 
-void	sa(t_stack *a)
+void	rra(t_stack *a)
 {
-	int	tmp;
+	int	last;
+	int	i;
 
 	if (a->top < 2)
 		return ;
-	tmp = a->data[a->top - 1];
-	a->data[a->top - 1] = a->data[a->top - 2];
-	a->data[a->top - 2] = tmp;
+	last = a->data[a->top - 1];
+	i = a->top - 1;
+	while (i > 0)
+	{
+		a->data[i] = a->data[i - 1];
+		i--;
+	}
+	a->data[0] = last;
 }
 
-void	sb(t_stack *b)
+void	rrb(t_stack *b)
 {
-	int	tmp;
+	int	last;
+	int	i;
 
 	if (b->top < 2)
 		return ;
-	tmp = b->data[b->top - 1];
-	b->data[b->top - 1] = b->data[b->top - 2];
-	b->data[b->top - 2] = tmp;
+	last = b->data[b->top - 1];
+	i = b->top - 1;
+	while (i > 0)
+	{
+		b->data[i] = b->data[i - 1];
+		i--;
+	}
+	b->data[0] = last;
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b)
 {
-	sa(a);
-	sb(b);
+	rra(a);
+	rrb(b);
 }

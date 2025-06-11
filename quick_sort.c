@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/03 12:34:38 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/06/08 17:18:33 by hkawaguc         ###   ########.fr       */
+/*   Created: 2025/06/10 16:40:45 by hkawaguc          #+#    #+#             */
+/*   Updated: 2025/06/10 17:19:10 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_stack.h"
+#include <stdio.h>
 
-void	sa(t_stack *a)
+void	quick_sort(int a[], int min, int max)
 {
+	int	l;
+	int	r;
+	int	m;
 	int	tmp;
 
-	if (a->top < 2)
-		return ;
-	tmp = a->data[a->top - 1];
-	a->data[a->top - 1] = a->data[a->top - 2];
-	a->data[a->top - 2] = tmp;
-}
-
-void	sb(t_stack *b)
-{
-	int	tmp;
-
-	if (b->top < 2)
-		return ;
-	tmp = b->data[b->top - 1];
-	b->data[b->top - 1] = b->data[b->top - 2];
-	b->data[b->top - 2] = tmp;
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	sa(a);
-	sb(b);
+	l = min;
+	r = max;
+	m = a[(l + r) / 2];
+	while (l <= r)
+	{
+		while (a[l] < m)
+			l++;
+		while (a[r] > m)
+			r--;
+		if (l <= r)
+		{
+			tmp = a[l];
+			a[l++] = a[r];
+			a[r--] = tmp;
+		}
+	}
+	if (min < r)
+		quick_sort(a, min, r);
+	if (l < max)
+		quick_sort(a, l, max);
 }
