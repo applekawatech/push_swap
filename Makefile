@@ -3,11 +3,11 @@ NAME = push_swap
 TARGET = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS =
+SRCS = ft_atoi.c  main.c pretreatment.c pretreatment2.c quick_sort.c radix_sort.c stack.c stack_b.c stack_c.c
 OBJS    =   $(SRCS:.c=.o)
 
-$(TARGET) : $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 all: $(TARGET)
 

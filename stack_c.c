@@ -6,7 +6,7 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 17:13:26 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/06/09 13:42:20 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/06/12 16:33:32 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	rra(t_stack *a)
 		i--;
 	}
 	a->data[0] = last;
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *b)
@@ -44,6 +45,7 @@ void	rrb(t_stack *b)
 		i--;
 	}
 	b->data[0] = last;
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *a, t_stack *b)
