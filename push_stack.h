@@ -67,4 +67,6 @@ void		init_stacks(t_stacks *stacks, int size);
 void		free_stacks(t_stacks *stacks);
 int			peek(t_stack *stack);
 int			is_empty(t_stack *stack);
+int			pop_top(t_stack *stack);
+int			is_sorted(t_stack *stack);
 #endif // PUSH_STACK_H

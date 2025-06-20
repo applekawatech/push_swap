@@ -53,3 +53,11 @@ void	rrr(t_stack *a, t_stack *b)
 	rra(a);
 	rrb(b);
 }
+
+int	pop_top(t_stack *stack)
+{
+	if (stack->top == 0)
+		return (0);
+	stack->top--;
+	return (stack->data[stack->top]);
+}
