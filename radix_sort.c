@@ -31,7 +31,6 @@ void	radix_sort(t_stacks *s)
 	int	j;
 	int	size;
 	int	max_bits;
-	int	rotate_count;
 
 	i = 0;
 	max_bits = get_max_bits(s->a);
@@ -39,7 +38,6 @@ void	radix_sort(t_stacks *s)
 	{
 		size = stack_size(s->a);
 		j = 0;
-		rotate_count = 0;
 		while (j < size)
 		{
 			if (((s->a->data[s->a->top - 1] >> i) & 1) == 0)
@@ -47,7 +45,6 @@ void	radix_sort(t_stacks *s)
 			else
 			{
 				ra(s->a);
-				rotate_count++;
 			}
 			j++;
 		}
