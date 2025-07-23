@@ -6,7 +6,7 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 15:00:11 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/06/14 16:39:52 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/07/11 15:49:15 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ int			peek(t_stack *stack);
 int			is_empty(t_stack *stack);
 int			pop_top(t_stack *stack);
 int			is_sorted(t_stack *stack);
+int			has_duplicates(char **argv, int argc);
 #endif // PUSH_STACK_H

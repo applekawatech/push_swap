@@ -6,11 +6,12 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 13:01:31 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/06/19 15:14:21 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/06/22 18:00:00 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_stack.h"
+#include <stdbool.h>
 
 int	get_max_bits(t_stack *stack)
 {
@@ -30,6 +31,7 @@ void	radix_sort(t_stacks *s)
 	int	j;
 	int	size;
 	int	max_bits;
+	int	rotate_count;
 
 	i = 0;
 	max_bits = get_max_bits(s->a);
@@ -37,12 +39,16 @@ void	radix_sort(t_stacks *s)
 	{
 		size = stack_size(s->a);
 		j = 0;
+		rotate_count = 0;
 		while (j < size)
 		{
 			if (((s->a->data[s->a->top - 1] >> i) & 1) == 0)
 				pb(s);
 			else
+			{
 				ra(s->a);
+				rotate_count++;
+			}
 			j++;
 		}
 		while (!is_empty(s->b))
@@ -65,7 +71,7 @@ int	stack_max_value(t_stack *stack)
 		return (0);
 	max = stack->data[0];
 	i = 1;
-	while (i <= stack->top)
+	while (i < stack->top)
 	{
 		if (stack->data[i] > max)
 			max = stack->data[i];
