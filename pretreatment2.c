@@ -6,7 +6,7 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:49:34 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/07/11 14:54:50 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/06/14 17:12:04 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,10 @@ int	get_index(int *sorted, int size, int value)
 
 void	free_stacks(t_stacks *stacks)
 {
-	if (stacks->a->data)
-		free(stacks->a->data);
-	free(stacks->a);
-	if (stacks->b->data)
-		free(stacks->b->data);
-	free(stacks->b);
+	if (stacks->a)
+		free(stacks->a);
+	if (stacks->b)
+		free(stacks->b);
 }
 
 int	is_empty(t_stack *stack)

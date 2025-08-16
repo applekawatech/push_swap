@@ -6,7 +6,7 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:49:34 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/07/11 15:48:27 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/06/13 15:36:48 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,22 @@ int	is_valid_int(const char *str)
 		return (0);
 	if (!check_int_range(str))
 		return (0);
+	return (1);
+}
+
+int	validate_args(int argc, char **argv)
+{
+	int	i;
+
+	if (argc < 2)
+		return (0);
+	i = 1;
+	while (i < argc)
+	{
+		if (!is_valid_int(argv[i]))
+			return (0);
+		i++;
+	}
 	return (1);
 }
 
