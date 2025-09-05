@@ -33,6 +33,8 @@ int	main(int argc, char **argv)
 	init_stacks(&stacks, size);
 	while (--i >= 0)
 		push(stacks.a, values[i]);
+	if (i >= 3)
+		sort_len_3(&stacks);
 	radix_sort(&stacks);
 	free(values);
 	free_stacks(&stacks);

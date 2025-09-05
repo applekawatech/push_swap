@@ -3,7 +3,7 @@ NAME = push_swap
 TARGET = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-SRCS = ft_atoi.c  main.c pretreatment.c pretreatment2.c quick_sort.c radix_sort.c stack.c stack_b.c stack_c.c
+SRCS = ft_atoi.c  main.c pretreatment.c pretreatment2.c quick_sort.c radix_sort.c stack.c stack_b.c stack_c.c sort_3_5.c
 OBJS    =   $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)

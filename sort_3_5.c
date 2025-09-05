@@ -10,21 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_stark.h"
+#include "push_stack.h"
 
-void	sort_len_3(t_stack *s)
+void	sort_len_3(t_stacks *s)
 {
-	int	max_data;
 
 	int v0 = s->a->data[s->a->top];     // top
 	int v1 = s->a->data[s->a->top - 1]; // 次
 	int v2 = s->a->data[s->a->top - 2]; // その次
 
 	if (v0 >= v1 && v0 >= v2)
-		ra(s);
+		ra(s->a);
 			else if (v1 >= v0 && v1 >= v2)
-				rra(s);
-					else
-	if (a->data[a->top] > a->data[a->top - 1])
-		sa(s);
+				rra(s->a);
+	if (s->a->data[s->a->top] > s->a->data[s->a->top - 1])
+		sa(s->a);
 }

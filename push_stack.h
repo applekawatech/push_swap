@@ -69,4 +69,5 @@ int			peek(t_stack *stack);
 int			is_empty(t_stack *stack);
 int			pop_top(t_stack *stack);
 int			is_sorted(t_stack *stack);
+void	sort_len_3(t_stacks *s);
 #endif // PUSH_STACK_H
