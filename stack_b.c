@@ -34,19 +34,19 @@ void	pb(t_stacks *s)
 
 void	ra(t_stack *a)
 {
-	int	last;
+	int	first;
 	int	i;
 
 	if (a->top < 2)
 		return ;
-	last = a->data[a->top - 1];
-	i = a->top - 1;
-	while (i > 0)
+	first = a->data[0];
+	i = 0;
+	while (i < a->top - 1)
 	{
-		a->data[i] = a->data[i - 1];
-		i--;
+		a->data[i] = a->data[i + 1];
+		i++;
 	}
-	a->data[0] = last;
+	a->data[a->top - 1] = first;
 	write(1, "ra\n", 3);
 }
 
