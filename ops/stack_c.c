@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_stack.h"
+#include "../push_stack.h"
 
 void	rra(t_stack *a)
 {
@@ -54,10 +54,3 @@ void	rrr(t_stack *a, t_stack *b)
 	rrb(b);
 }
 
-int	pop_top(t_stack *stack)
-{
-	if (stack->top == 0)
-		return (0);
-	stack->top--;
-	return (stack->data[stack->top]);
-}

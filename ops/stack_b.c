@@ -6,11 +6,11 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 16:55:37 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/06/19 13:10:55 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/10/05 17:59:13 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_stack.h"
+#include "../push_swap.h"
 
 void	pa(t_stacks *s)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_stack.h"
+#include "include/push_swap.h"
 #include <stdlib.h>
 
 int	main(int argc, char **argv)
@@ -33,7 +33,12 @@ int	main(int argc, char **argv)
 	init_stacks(&stacks, size);
 	while (--i >= 0)
 		push(stacks.a, values[i]);
-	if (size == 3)
+	if (size == 2)
+	{
+		if (stacks.a->data[stacks.a->top - 1] > stacks.a->data[stacks.a->top - 2])
+			sa(stacks.a);
+	}
+	else if (size == 3)
 		sort_len_3(&stacks);
 	else
 		radix_sort(&stacks);

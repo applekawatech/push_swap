@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_stack.h"
+#include "push_swap.h"
 #include <stdio.h>
 
 void	quick_sort(int a[], int min, int max)

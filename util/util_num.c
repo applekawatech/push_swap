@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   util_num.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,7 +9,7 @@
 /*   Updated: 2025/06/13 13:30:13 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_stack.h"
+#include "../include/push_swap.h"
 
 int	ft_atoi(const char *nptr)
 {
@@ -76,17 +76,21 @@ int	ft_isdigit(int c)
 		return (0);
 }
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	check_int_range(const char *str)
 {
-	int	i;
+	long	num;
 
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	num = ft_atol(str);
+	if (num > FT_INT_MAX || num < FT_INT_MIN)
+		return (0);
+	return (1);
 }
 
-int	ft_isspace(int c)
+int	is_valid_int(const char *str)
 {
-	return (c == ' ' || (c >= '\t' && c <= '\r'));
+	if (!is_valid_format(str))
+		return (0);
+	if (!check_int_range(str))
+		return (0);
+	return (1);
 }

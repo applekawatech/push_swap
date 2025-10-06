@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pretreatment.c                                     :+:      :+:    :+:   */
+/*   util_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/12 13:49:34 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/06/14 17:12:04 by hkawaguc         ###   ########.fr       */
+/*   Created: 2025/10/06 16:41:45 by hkawaguc          #+#    #+#             */
+/*   Updated: 2025/10/06 16:41:48 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "push_stack.h"
 
 void	init_stacks(t_stacks *stacks, int size)
 {
@@ -36,32 +34,6 @@ void	init_stacks(t_stacks *stacks, int size)
 	stacks->b->max_size = size;
 }
 
-void	push(t_stack *stack, int value)
-{
-	if (stack->top >= stack->max_size)
-	{
-		write(2, "Stack Overflow\n", 15);
-		exit(1);
-	}
-	stack->data[stack->top] = value;
-	stack->top++;
-}
-
-int	get_index(int *sorted, int size, int value)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		if (sorted[i] == value)
-			return (i);
-		i++;
-	}
-	write(2, "Value not found\n", 17);
-	exit(1);
-}
-
 void	free_stacks(t_stacks *stacks)
 {
 	if (stacks->a)
@@ -73,4 +45,12 @@ void	free_stacks(t_stacks *stacks)
 int	is_empty(t_stack *stack)
 {
 	return (stack->top == 0);
+}
+
+int	pop_top(t_stack *stack)
+{
+	if (stack->top == 0)
+		return (0);
+	stack->top--;
+	return (stack->data[stack->top]);
 }
