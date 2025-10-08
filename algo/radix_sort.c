@@ -9,10 +9,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdbool.h>
+#include "../include/push_swap.h"
 
-int	get_max_bits(t_stack *stack)
+static	int	get_max_bits(t_stack *stack)
 {
 	int	max;
 	int	bits;
@@ -22,6 +21,37 @@ int	get_max_bits(t_stack *stack)
 	while ((max >> bits) != 0)
 		bits++;
 	return (bits);
+}
+
+
+static int	stack_size(t_stack *stack)
+{
+	return (stack->top);
+}
+
+static	int	stack_max_value(t_stack *stack)
+{
+	int	i;
+	int	max;
+
+	if (stack->top <= 0)
+		return (0);
+	max = stack->data[0];
+	i = 1;
+	while (i < stack->top)
+	{
+		if (stack->data[i] > max)
+			max = stack->data[i];
+		i++;
+	}
+	return (max);
+}
+
+static int peek(t_stack *stack)
+{
+	if (stack->top <= 0)
+		return (-1);
+	return (stack->data[stack->top - 1]);
 }
 
 void	radix_sort(t_stacks *s)
@@ -53,34 +83,4 @@ void	radix_sort(t_stacks *s)
 			pa(s);
 		i++;
 	}
-}
-
-int	stack_size(t_stack *stack)
-{
-	return (stack->top);
-}
-
-int	stack_max_value(t_stack *stack)
-{
-	int	i;
-	int	max;
-
-	if (stack->top <= 0)
-		return (0);
-	max = stack->data[0];
-	i = 1;
-	while (i < stack->top)
-	{
-		if (stack->data[i] > max)
-			max = stack->data[i];
-		i++;
-	}
-	return (max);
-}
-
-int	peek(t_stack *stack)
-{
-	if (stack->top <= 0)
-		return (-1);
-	return (stack->data[stack->top - 1]);
 }

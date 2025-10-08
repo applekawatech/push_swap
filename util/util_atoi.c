@@ -1,15 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util_num.c                                          :+:      :+:    :+:   */
+/*   util_atoi.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 16:04:12 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/06/13 13:30:13 by hkawaguc         ###   ########.fr       */
+/*   Created: 2025/10/08 16:42:53 by hkawaguc          #+#    #+#             */
+/*   Updated: 2025/10/08 16:42:57 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/push_swap.h"
+
+static int is_valid_format(const char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+static int	check_int_range(const char *str)
+{
+	long	num;
+
+	num = ft_atol(str);
+	if (num > FT_INT_MAX || num < FT_INT_MIN)
+		return (0);
+	return (1);
+}
+
+static int	is_valid_int(const char *str)
+{
+	if (!is_valid_format(str))
+		return (0);
+	if (!check_int_range(str))
+		return (0);
+	return (1);
+}
 
 int	ft_atoi(const char *nptr)
 {
@@ -66,31 +101,4 @@ long	ft_atol(const char *s)
 		i++;
 	}
 	return (res * coeff);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (c);
-	else
-		return (0);
-}
-
-int	check_int_range(const char *str)
-{
-	long	num;
-
-	num = ft_atol(str);
-	if (num > FT_INT_MAX || num < FT_INT_MIN)
-		return (0);
-	return (1);
-}
-
-int	is_valid_int(const char *str)
-{
-	if (!is_valid_format(str))
-		return (0);
-	if (!check_int_range(str))
-		return (0);
-	return (1);
 }

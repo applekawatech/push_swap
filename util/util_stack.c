@@ -42,6 +42,24 @@ void	free_stacks(t_stacks *stacks)
 		free(stacks->b);
 }
 
+void	index_array(int *arr, int size)
+{
+	int	*sorted;
+	int	i;
+
+	sorted = copy_array(arr, size);
+	if (!sorted)
+		return ;
+	quick_sort(sorted, 0, size - 1);
+	i = 0;
+	while (i < size)
+	{
+		arr[i] = find_index(sorted, size, arr[i]);
+		i++;
+	}
+	free(sorted);
+}
+
 int	is_empty(t_stack *stack)
 {
 	return (stack->top == 0);

@@ -37,7 +37,6 @@ int			is_valid_int(const char *str);
 int			validate_args(int argc, char **argv);
 int			ft_strcmp(const char *s1, const char *s2);
 int			stack_size(t_stack *stack);
-void		radix_sort(t_stacks *stacks);
 int			is_valid_format(const char *str);
 int			stack_max_value(t_stack *stack);
 void		push(t_stack *stack, int value);

@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 void	quick_sort(int a[], int min, int max)
 {
@@ -42,7 +43,7 @@ void	quick_sort(int a[], int min, int max)
 		quick_sort(a, l, max);
 }
 
-int	*copy_array(int *arr, int size)
+static int *copy_array(int *arr, int size)
 {
 	int	*copy;
 	int	i;
@@ -59,7 +60,7 @@ int	*copy_array(int *arr, int size)
 	return (copy);
 }
 
-int	find_index(int *sorted, int size, int value)
+static int	find_index(int *sorted, int size, int value)
 {
 	int	i;
 
@@ -73,20 +74,3 @@ int	find_index(int *sorted, int size, int value)
 	return (-1);
 }
 
-void	index_array(int *arr, int size)
-{
-	int	*sorted;
-	int	i;
-
-	sorted = copy_array(arr, size);
-	if (!sorted)
-		return ;
-	quick_sort(sorted, 0, size - 1);
-	i = 0;
-	while (i < size)
-	{
-		arr[i] = find_index(sorted, size, arr[i]);
-		i++;
-	}
-	free(sorted);
-}
