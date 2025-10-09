@@ -9,25 +9,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
-static	int	get_max_bits(t_stack *stack)
-{
-	int	max;
-	int	bits;
-
-	max = stack_max_value(stack);
-	bits = 0;
-	while ((max >> bits) != 0)
-		bits++;
-	return (bits);
-}
-
-
-static int	stack_size(t_stack *stack)
-{
-	return (stack->top);
-}
+#include "../../include/push_swap.h"
 
 static	int	stack_max_value(t_stack *stack)
 {
@@ -47,11 +29,21 @@ static	int	stack_max_value(t_stack *stack)
 	return (max);
 }
 
-static int peek(t_stack *stack)
+static	int	get_max_bits(t_stack *stack)
 {
-	if (stack->top <= 0)
-		return (-1);
-	return (stack->data[stack->top - 1]);
+	int	max;
+	int	bits;
+
+	max = stack_max_value(stack);
+	bits = 0;
+	while ((max >> bits) != 0)
+		bits++;
+	return (bits);
+}
+
+static int	stack_size(t_stack *stack)
+{
+	return (stack->top);
 }
 
 void	radix_sort(t_stacks *s)

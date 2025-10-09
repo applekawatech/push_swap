@@ -10,10 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef ALGO_H
-#define ALGO_H
-void		quick_sort(int a[], int min, int max);
-void		radix_sort(t_stacks *stacks);
+# define ALGO_H
+# include "push_swap.h"
 
-#endif //ALGO_H
+/* quick_sort.c */
+void	quick_sort(int a[], int min, int max);
+/* radix_sort.c */
+void	radix_sort(t_stacks *stacks);
+/* sort_3_5.c */
+void	sort_len_3(t_stacks *s);
+#endif // ALGO_H

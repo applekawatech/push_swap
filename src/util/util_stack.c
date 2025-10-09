@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../include/push_swap.h"
+
 void	init_stacks(t_stacks *stacks, int size)
 {
 	stacks->a = malloc(sizeof(t_stack));
@@ -42,23 +44,6 @@ void	free_stacks(t_stacks *stacks)
 		free(stacks->b);
 }
 
-void	index_array(int *arr, int size)
-{
-	int	*sorted;
-	int	i;
-
-	sorted = copy_array(arr, size);
-	if (!sorted)
-		return ;
-	quick_sort(sorted, 0, size - 1);
-	i = 0;
-	while (i < size)
-	{
-		arr[i] = find_index(sorted, size, arr[i]);
-		i++;
-	}
-	free(sorted);
-}
 
 int	is_empty(t_stack *stack)
 {
@@ -72,3 +57,27 @@ int	pop_top(t_stack *stack)
 	stack->top--;
 	return (stack->data[stack->top]);
 }
+
+int is_sorted(t_stack *a)
+{
+	int i = 0;
+	while (i < a->top - 1)
+	{
+		if (a->data[i] > a->data[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	push(t_stack *stack, int value)
+{
+	if (stack->top >= stack->max_size)
+	{
+		write(2, "Stack Overflow\n", 15);
+		exit(1);
+	}
+	stack->data[stack->top] = value;
+	stack->top++;
+}
+

@@ -12,22 +12,22 @@
 #ifndef OPS_H
 # define OPS_H
 
-typedef struct s_stacks
-{
-	t_stack	*a;
-	t_stack	*b;
-}			t_stacks;
+# include "push_swap.h"
 
-void		sa(t_stack *a);
-void		sb(t_stack *b);
-void		ss(t_stack *a, t_stack *b);
-void		pa(t_stacks *s);
-void		pb(t_stacks *s);
-void		ra(t_stack *a);
-void		rb(t_stack *b);
-void		rr(t_stack *a, t_stack *b);
-void		rra(t_stack *a);
-void		rrb(t_stack *b);
-void		rrr(t_stack *a, t_stack *b);
+/* stack_swap.c */
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
+/* stack_push.c */
+void	pa(t_stacks *s);
+void	pb(t_stacks *s);
+/* stack_rotate.c */
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+/* stack_reverse_rotate.c */
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 
 #endif

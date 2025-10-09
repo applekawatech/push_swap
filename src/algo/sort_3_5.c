@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
 void	sort_len_3(t_stacks *s)
 {
@@ -27,15 +27,3 @@ void	sort_len_3(t_stacks *s)
 		sa(s->a);
 }
 
-
-int is_sorted(t_stack *a)
-{
-	int i = 0;
-	while (i < a->top - 1)
-	{
-		if (a->data[i] > a->data[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}

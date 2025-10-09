@@ -1,56 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_c.c                                          :+:      :+:    :+:   */
+/*   stack_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 17:13:26 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/06/12 16:33:32 by hkawaguc         ###   ########.fr       */
+/*   Created: 2025/10/09 11:41:55 by hkawaguc          #+#    #+#             */
+/*   Updated: 2025/10/09 11:41:58 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_stack.h"
+#include "../../include/push_swap.h"
 
-void	rra(t_stack *a)
+void	sa(t_stack *a)
 {
-	int	last;
-	int	i;
+	int	tmp;
 
 	if (a->top < 2)
 		return ;
-	last = a->data[a->top - 1];
-	i = a->top - 1;
-	while (i > 0)
-	{
-		a->data[i] = a->data[i - 1];
-		i--;
-	}
-	a->data[0] = last;
-	write(1, "rra\n", 4);
+	tmp = a->data[a->top - 1];
+	a->data[a->top - 1] = a->data[a->top - 2];
+	a->data[a->top - 2] = tmp;
+	write(1, "sa\n", 3);
 }
 
-void	rrb(t_stack *b)
+void	sb(t_stack *b)
 {
-	int	last;
-	int	i;
+	int	tmp;
 
 	if (b->top < 2)
 		return ;
-	last = b->data[b->top - 1];
-	i = b->top - 1;
-	while (i > 0)
-	{
-		b->data[i] = b->data[i - 1];
-		i--;
-	}
-	b->data[0] = last;
-	write(1, "rrb\n", 4);
+	tmp = b->data[b->top - 1];
+	b->data[b->top - 1] = b->data[b->top - 2];
+	b->data[b->top - 2] = tmp;
+	write(1, "sb\n", 3);
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b)
 {
-	rra(a);
-	rrb(b);
+	sa(a);
+	sb(b);
 }
-

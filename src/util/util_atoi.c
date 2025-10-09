@@ -10,41 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static int is_valid_format(const char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-static int	check_int_range(const char *str)
-{
-	long	num;
-
-	num = ft_atol(str);
-	if (num > FT_INT_MAX || num < FT_INT_MIN)
-		return (0);
-	return (1);
-}
-
-static int	is_valid_int(const char *str)
-{
-	if (!is_valid_format(str))
-		return (0);
-	if (!check_int_range(str))
-		return (0);
-	return (1);
-}
+#include "../../include/util.h"
 
 int	ft_atoi(const char *nptr)
 {

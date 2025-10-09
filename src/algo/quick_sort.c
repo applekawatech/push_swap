@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 #include <stdio.h>
 #include <stdlib.h>
+
 
 void	quick_sort(int a[], int min, int max)
 {
@@ -41,36 +42,5 @@ void	quick_sort(int a[], int min, int max)
 		quick_sort(a, min, r);
 	if (l < max)
 		quick_sort(a, l, max);
-}
-
-static int *copy_array(int *arr, int size)
-{
-	int	*copy;
-	int	i;
-
-	copy = malloc(sizeof(int) * size);
-	if (!copy)
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		copy[i] = arr[i];
-		i++;
-	}
-	return (copy);
-}
-
-static int	find_index(int *sorted, int size, int value)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		if (sorted[i] == value)
-			return (i);
-		i++;
-	}
-	return (-1);
 }
 

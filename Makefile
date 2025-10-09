@@ -3,7 +3,19 @@ NAME = push_swap
 TARGET = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-SRCS = ft_atoi.c  main.c pretreatment.c pretreatment2.c quick_sort.c radix_sort.c stack.c stack_b.c stack_c.c sort_3_5.c
+SRCS = src/algo/quick_sort.c \
+       src/algo/radix_sort.c \
+       src/algo/sort_3_5.c \
+       src/ops/stack_push.c \
+       src/ops/stack_reverse_rotate.c \
+       src/ops/stack_rotate.c \
+       src/ops/stack_swap.c \
+       src/util/util_atoi.c \
+       src/util/util_char.c \
+       src/util/util_int.c \
+       src/util/util_stack.c \
+       src/util/util_str.c \
+       src/main.c
 OBJS    =   $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
