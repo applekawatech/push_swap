@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 16:55:37 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/10/05 17:59:13 by hkawaguc         ###   ########.fr       */
+/*   Created: 2025/06/08 17:13:26 by hkawaguc          #+#    #+#             */
+/*   Updated: 2025/06/12 16:33:32 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,42 @@
 
 void	ra(t_stack *a)
 {
-	int	first;
+	int	last;
 	int	i;
 
 	if (a->top < 2)
 		return ;
-	first = a->data[0];
-	i = 0;
-	while (i < a->top - 1)
+	last = a->data[a->top - 1];
+	i = a->top - 1;
+	while (i > 0)
 	{
-		a->data[i] = a->data[i + 1];
-		i++;
+		a->data[i] = a->data[i - 1];
+		i--;
 	}
-	a->data[a->top - 1] = first;
+	a->data[0] = last;
 	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack *b)
 {
-	int	first;
+	int	last;
 	int	i;
 
 	if (b->top < 2)
 		return ;
-	first = b->data[0];
-	i = 0;
-	while (i < b->top - 1)
+	last = b->data[b->top - 1];
+	i = b->top - 1;
+	while (i > 0)
 	{
-		b->data[i] = b->data[i + 1];
-		i++;
+		b->data[i] = b->data[i - 1];
+		i--;
 	}
-	b->data[b->top - 1] = first;
+	b->data[0] = last;
 	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
-	ra(a);
-	rb(b);
+	rra(a);
+	rrb(b);
 }

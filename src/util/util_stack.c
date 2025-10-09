@@ -60,12 +60,12 @@ int	pop_top(t_stack *stack)
 
 int is_sorted(t_stack *a)
 {
-	int i = 0;
-	while (i < a->top - 1)
+	int i = a->top - 1;
+	while (i > 0)
 	{
-		if (a->data[i] > a->data[i + 1])
+		if (a->data[i] > a->data[i - 1])
 			return (0);
-		i++;
+		i--;
 	}
 	return (1);
 }
@@ -81,3 +81,22 @@ void	push(t_stack *stack, int value)
 	stack->top++;
 }
 
+int	get_min_index_list(t_stack *a)
+{
+	int		i = 0;
+	int		index = 0;
+	int		min = a->value;
+	t_stack	*tmp = a;
+
+	while (tmp)
+	{
+		if (tmp->value < min)
+		{
+			min = tmp->value;
+			index = i;
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	return (index);
+}

@@ -6,7 +6,7 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 16:04:33 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/10/05 12:36:17 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/10/09 17:10:44 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,40 @@
 
 void	sort_len_3(t_stacks *s)
 {
-	if (is_sorted(s->a))
-		return;
-	int v0 = s->a->data[s->a->top - 1];
-	int v1 = s->a->data[s->a->top - 2];
-	int v2 = s->a->data[s->a->top - 3];
-	if (v0 > v1 && v0 > v2)
-		ra(s->a);
-	else if (v1 > v0 && v1 > v2)
-		rra(s->a);
-	if (s->a->data[s->a->top - 1] > s->a->data[s->a->top - 2])
+	int a;
+	int	b;
+	int	c;
+
+	a = s->a->data[s->a->top - 1]; // top
+	b = s->a->data[s->a->top - 2];
+	c = s->a->data[s->a->top - 3];
+	if (a <= b && b <= c)
+		return ;
+	if (a > b && b <= c && a <= c)
+	{
 		sa(s->a);
+	}
+	else if (a > b && b > c)
+	{
+		sa(s->a);
+		rra(s->a);
+	}
+	else if (a > b && b <= c && a > c)
+	{
+		ra(s->a);
+	}
+	else if (a <= b && b > c && a <= c)
+	{
+		sa(s->a);
+		ra(s->a);
+	}
+	else
+	{
+		rra(s->a);
+	}
 }
 
+void	sort_len_5(t_stacks *s)
+{
+
+}
