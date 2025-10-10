@@ -14,13 +14,6 @@
 
 # include "push_swap.h"
 
-typedef struct s_sort5
-{
-	int		*data;
-	int		top;
-	int		max_size;
-}			t_sort5;
-
 /* stack_swap.c */
 void	sa(t_stack *a);
 void	sb(t_stack *b);

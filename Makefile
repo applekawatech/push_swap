@@ -2,7 +2,7 @@ NAME = push_swap
 
 TARGET = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -I include
 SRCS = src/algo/quick_sort.c \
        src/algo/radix_sort.c \
        src/algo/sort_3_5.c \

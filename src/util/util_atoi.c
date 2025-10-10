@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/util.h"
+#include "util.h"
 
 int	ft_atoi(const char *nptr)
 {

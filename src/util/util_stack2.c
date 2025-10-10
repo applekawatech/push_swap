@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/util.h"
+#include "util.h"
 
 void	push(t_stack *stack, int value)
 {

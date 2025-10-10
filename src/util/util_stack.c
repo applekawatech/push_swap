@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/util.h"
+#include "util.h"
 
 void	init_stacks(t_stacks *stacks, int size)
 {

@@ -16,19 +16,7 @@
 # define FT_INT_MAX 2147483647
 # define FT_INT_MIN -2147483648
 
-typedef struct s_stack
-{
-	int		*data;
-	int		top;
-	int		max_size;
-}			t_stack;
-
-typedef struct s_stacks
-{
-	t_stack	*a;
-	t_stack	*b;
-}			t_stacks;
-
+# include "struct.h"
 # include "algo.h"
 # include "ops.h"
 # include "util.h"

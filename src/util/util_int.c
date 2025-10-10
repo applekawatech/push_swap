@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/util.h"
+#include "util.h"
 
 void	index_array(int *arr, int size)
 {
