@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/09 13:01:31 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/10/05 12:38:02 by hkawaguc         ###   ########.fr       */
+/*   Created: 2025/10/09 16:53:58 by hkawaguc          #+#    #+#             */
+/*   Updated: 2025/10/10 15:12:39 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static	int	stack_max_value(t_stack *stack)
+static int	stack_max_value(t_stack *stack)
 {
 	int	i;
 	int	max;
@@ -29,7 +30,7 @@ static	int	stack_max_value(t_stack *stack)
 	return (max);
 }
 
-static	int	get_max_bits(t_stack *stack)
+static int	get_max_bits(t_stack *stack)
 {
 	int	max;
 	int	bits;
@@ -48,31 +49,28 @@ static int	stack_size(t_stack *stack)
 
 void	radix_sort(t_stacks *s)
 {
-	int	i;
-	int	j;
-	int	size;
-	int	max_bits;
+	t_radix	x;
 
 	if (is_sorted(s->a) || stack_size(s->a) < 2)
-		return;
-	i = 0;
-	max_bits = get_max_bits(s->a);
-	while (i < max_bits)
+		return ;
+	x.i = 0;
+	x.max_bits = get_max_bits(s->a);
+	while (x.i < x.max_bits)
 	{
-		size = stack_size(s->a);
-		j = 0;
-		while (j < size)
+		x.size = stack_size(s->a);
+		x.j = 0;
+		while (x.j < x.size)
 		{
 			if (stack_size(s->a) == 0)
-				break;
-			if (((s->a->data[s->a->top - 1] >> i) & 1) == 0)
+				break ;
+			if (((s->a->data[s->a->top - 1] >> x.i) & 1) == 0)
 				pb(s);
 			else
 				ra(s->a);
-			j++;
+			x.j++;
 		}
 		while (!is_empty(s->b))
 			pa(s);
-		i++;
+		x.i++;
 	}
 }

@@ -5,20 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/12 13:45:00 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/10/09 14:53:50 by hkawaguc         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   util_int.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 16:04:12 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/06/13 13:30:13 by hkawaguc         ###   ########.fr       */
+/*   Created: 2025/10/09 16:53:58 by hkawaguc          #+#    #+#             */
+/*   Updated: 2025/10/10 16:38:04 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +44,7 @@ int	find_index(int *sorted, int size, int value)
 	return (-1);
 }
 
-int *copy_array(int *arr, int size)
+int	*copy_array(int *arr, int size)
 {
 	int	*copy;
 	int	i;
@@ -73,7 +61,7 @@ int *copy_array(int *arr, int size)
 	return (copy);
 }
 
-int     is_valid_int(const char *str)
+int	is_valid_int(const char *str)
 {
 	if (!is_valid_format(str))
 		return (0);
@@ -82,13 +70,12 @@ int     is_valid_int(const char *str)
 	return (1);
 }
 
-int     check_int_range(const char *str)
+int	check_int_range(const char *str)
 {
-	long    num;
+	long	num;
 
 	num = ft_atol(str);
 	if (num > FT_INT_MAX || num < FT_INT_MIN)
 		return (0);
 	return (1);
 }
-

@@ -14,7 +14,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 void	quick_sort(int a[], int min, int max)
 {
 	int	l;
@@ -43,4 +42,3 @@ void	quick_sort(int a[], int min, int max)
 	if (l < max)
 		quick_sort(a, l, max);
 }
-

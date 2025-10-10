@@ -34,9 +34,13 @@ void	free_stacks(t_stacks *stacks);
 int		is_empty(t_stack *stack);
 int		pop_top(t_stack *stack);
 int		is_sorted(t_stack *stack);
+
+/* util_stack2.c */
 void	push(t_stack *stack, int value);
+int		find_min_index(t_stack *a);
+void	rotate_to_top(t_stack *a, int idx);
 /* util_str.c */
 int		ft_strcmp(const char *s1, const char *s2);
-int     is_valid_format(const char *str);
+int		is_valid_format(const char *str);
 
 #endif // UTIL_H

@@ -22,9 +22,9 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-int     validate_args(int argc, char **argv)
+int	validate_args(int argc, char **argv)
 {
-	int     i;
+	int	i;
 
 	if (argc < 2)
 		return (0);
@@ -38,9 +38,9 @@ int     validate_args(int argc, char **argv)
 	return (1);
 }
 
-int     is_valid_format(const char *str)
+int	is_valid_format(const char *str)
 {
-	int     i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')

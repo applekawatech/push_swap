@@ -14,6 +14,7 @@ SRCS = src/algo/quick_sort.c \
        src/util/util_char.c \
        src/util/util_int.c \
        src/util/util_stack.c \
+       src/util/util_stack2.c \
        src/util/util_str.c \
        src/main.c
 OBJS    =   $(SRCS:.c=.o)

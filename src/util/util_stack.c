@@ -6,11 +6,11 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:41:45 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/10/06 16:41:48 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/10/10 16:30:48 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../include/util.h"
 
 void	init_stacks(t_stacks *stacks, int size)
 {
@@ -44,7 +44,6 @@ void	free_stacks(t_stacks *stacks)
 		free(stacks->b);
 }
 
-
 int	is_empty(t_stack *stack)
 {
 	return (stack->top == 0);
@@ -58,9 +57,11 @@ int	pop_top(t_stack *stack)
 	return (stack->data[stack->top]);
 }
 
-int is_sorted(t_stack *a)
+int	is_sorted(t_stack *a)
 {
-	int i = a->top - 1;
+	int	i;
+
+	i = a->top - 1;
 	while (i > 0)
 	{
 		if (a->data[i] > a->data[i - 1])
@@ -68,35 +69,4 @@ int is_sorted(t_stack *a)
 		i--;
 	}
 	return (1);
-}
-
-void	push(t_stack *stack, int value)
-{
-	if (stack->top >= stack->max_size)
-	{
-		write(2, "Stack Overflow\n", 15);
-		exit(1);
-	}
-	stack->data[stack->top] = value;
-	stack->top++;
-}
-
-int	get_min_index_list(t_stack *a)
-{
-	int		i = 0;
-	int		index = 0;
-	int		min = a->value;
-	t_stack	*tmp = a;
-
-	while (tmp)
-	{
-		if (tmp->value < min)
-		{
-			min = tmp->value;
-			index = i;
-		}
-		tmp = tmp->next;
-		i++;
-	}
-	return (index);
 }

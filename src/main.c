@@ -32,13 +32,8 @@ int	main(int argc, char **argv)
 	init_stacks(&stacks, size);
 	while (--i >= 0)
 		push(stacks.a, values[i]);
-	if (size == 2)
-	{
-		if (stacks.a->data[stacks.a->top - 1] > stacks.a->data[stacks.a->top - 2])
-			sa(stacks.a);
-	}
-	else if (size == 3)
-		sort_len_3(&stacks);
+	if (size <= 5)
+		sort_small(&stacks);
 	else
 		radix_sort(&stacks);
 	free(values);
