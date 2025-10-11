@@ -67,15 +67,15 @@ static void	sort_len_5(t_stacks *s)
 	t_five	x;
 
 	x.i = find_min_index(s->a);
-	x.a = s->b->data[s->b->top - 1];
-	x.b = s->b->data[s->b->top - 2];
 	rotate_to_top(s->a, x.i);
 	pb(s);
+	x.a = s->b->data[s->b->top - 1];
+	x.b = s->b->data[s->b->top - 2];
 	x.i = find_min_index(s->a);
 	rotate_to_top(s->a, x.i);
 	pb(s);
 	sort_len_3(s);
-	if (x.a < x.b)
+	if (x.b < x.a)
 		sb(s->b);
 	pa(s);
 	pa(s);

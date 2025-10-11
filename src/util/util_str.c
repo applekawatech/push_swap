@@ -6,7 +6,7 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:40:54 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/10/09 15:25:28 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/10/11 16:39:02 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	validate_args(int argc, char **argv)
 	int	i;
 
 	if (argc < 2)
-		return (0);
+		return (1);
 	i = 1;
 	while (i < argc)
 	{

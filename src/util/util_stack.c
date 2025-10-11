@@ -6,9 +6,11 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:41:45 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/10/10 16:30:48 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/10/11 16:02:46 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 #include "util.h"
 
@@ -39,9 +41,15 @@ void	init_stacks(t_stacks *stacks, int size)
 void	free_stacks(t_stacks *stacks)
 {
 	if (stacks->a)
+	{
+		free(stacks->a->data);
 		free(stacks->a);
+	}
 	if (stacks->b)
+	{
+		free(stacks->b->data);
 		free(stacks->b);
+	}
 }
 
 int	is_empty(t_stack *stack)

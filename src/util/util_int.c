@@ -6,7 +6,7 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:53:58 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/10/10 16:38:04 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/10/11 17:20:46 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	index_array(int *arr, int size)
 {
 	int	*sorted;
 	int	i;
+	int	j;
 
 	sorted = copy_array(arr, size);
 	if (!sorted)
@@ -26,6 +27,16 @@ void	index_array(int *arr, int size)
 	{
 		arr[i] = find_index(sorted, size, arr[i]);
 		i++;
+	}
+	j = 0;
+	while (j < size - 1)
+	{
+		if (sorted[j] == sorted[j + 1])
+		{
+			free(sorted);
+			(write(2, "Error\n", 6), exit(1));
+		}
+		j++;
 	}
 	free(sorted);
 }
