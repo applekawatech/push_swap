@@ -6,13 +6,12 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:41:45 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/10/11 16:02:46 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/10/12 00:04:52 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
 #include "util.h"
+#include <stdlib.h>
 
 void	init_stacks(t_stacks *stacks, int size)
 {
@@ -67,14 +66,12 @@ int	pop_top(t_stack *stack)
 
 int	is_sorted(t_stack *a)
 {
-	int	i;
-
-	i = a->top - 1;
-	while (i > 0)
+	int i = 0;
+	while (i < a->top - 1)
 	{
-		if (a->data[i] > a->data[i - 1])
+		if (a->data[i] > a->data[i + 1])
 			return (0);
-		i--;
+		i++;
 	}
 	return (1);
 }

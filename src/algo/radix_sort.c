@@ -51,7 +51,7 @@ void	radix_sort(t_stacks *s)
 {
 	t_radix	x;
 
-	if (is_sorted(s->a) || stack_size(s->a) < 2)
+	if (is_sorted(s->a) || stack_size(s->a) < 1)
 		return ;
 	x.i = 0;
 	x.max_bits = get_max_bits(s->a);
