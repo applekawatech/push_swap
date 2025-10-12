@@ -64,3 +64,19 @@ void	rotate_to_top(t_stack *a, int idx)
 			rra(a);
 	}
 }
+
+int	is_sorted_raw(int *arr, int size)
+{
+	int	i;
+
+	if (size <= 1)
+		return (1);
+	i = 0;
+	while (i < size - 1)
+	{
+		if (arr[i] > arr[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}

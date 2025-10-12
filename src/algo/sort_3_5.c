@@ -64,19 +64,24 @@ static void	sort_len_4(t_stacks *s)
 
 static void	sort_len_5(t_stacks *s)
 {
-	t_five	x;
+	int	i;
+	int	top;
+	int	under;
 
-	x.i = find_min_index(s->a);
-	rotate_to_top(s->a, x.i);
+	i = find_min_index(s->a);
+	rotate_to_top(s->a, i);
 	pb(s);
-	x.a = s->b->data[s->b->top - 1];
-	x.b = s->b->data[s->b->top - 2];
-	x.i = find_min_index(s->a);
-	rotate_to_top(s->a, x.i);
+	i = find_min_index(s->a);
+	rotate_to_top(s->a, i);
 	pb(s);
+	if (s->b->top >= 2)
+	{
+		top = s->b->top - 1;
+		under = s->b->top - 2;
+		if (s->b->data[top] < s->b->data[under])
+			sb(s->b);
+	}
 	sort_len_3(s);
-	if (x.b < x.a)
-		sb(s->b);
 	pa(s);
 	pa(s);
 }

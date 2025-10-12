@@ -41,11 +41,11 @@ typedef struct s_radix
 	int		max_bits;
 }			t_radix;
 
-typedef struct s_five
+typedef struct s_main
 {
-	int		a;
-	int		b;
+	int		*values;
+	int		size;
 	int		i;
-}			t_five;
+}			t_main;
 
 #endif // STRUCT_H

@@ -39,6 +39,8 @@ int		is_sorted(t_stack *stack);
 void	push(t_stack *stack, int value);
 int		find_min_index(t_stack *a);
 void	rotate_to_top(t_stack *a, int idx);
+int		is_sorted_raw(int *arr, int size);
+
 /* util_str.c */
 int		ft_strcmp(const char *s1, const char *s2);
 int		is_valid_format(const char *str);

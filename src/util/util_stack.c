@@ -66,12 +66,16 @@ int	pop_top(t_stack *stack)
 
 int	is_sorted(t_stack *a)
 {
-	int i = 0;
-	while (i < a->top - 1)
+	int	i;
+
+	if (a->top <= 1)
+		return (1);
+	i = a->top - 1;
+	while (i > 0)
 	{
-		if (a->data[i] > a->data[i + 1])
+		if (a->data[i] > a->data[i - 1])
 			return (0);
-		i++;
+		i--;
 	}
 	return (1);
 }
