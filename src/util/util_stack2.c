@@ -80,3 +80,25 @@ int	is_sorted_raw(int *arr, int size)
 	}
 	return (1);
 }
+
+int	*check_duplicate(int *arr, int size)
+{
+	int	*sorted;
+	int	j;
+
+	sorted = copy_array(arr, size);
+	if (!sorted)
+		return (NULL);
+	quick_sort(sorted, 0, size - 1);
+	j = 0;
+	while (j < size - 1)
+	{
+		if (sorted[j] == sorted[j + 1])
+		{
+			free(sorted);
+			(write(2, "Error\n", 6), exit(1));
+		}
+		j++;
+	}
+	return (sorted);
+}

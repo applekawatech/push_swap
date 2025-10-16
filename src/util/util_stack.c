@@ -37,7 +37,7 @@ void	init_stacks(t_stacks *stacks, int size)
 	stacks->b->max_size = size;
 }
 
-void	free_stacks(t_stacks *stacks)
+void	free_stacks(t_stacks *stacks, int *values)
 {
 	if (stacks->a)
 	{
@@ -49,6 +49,7 @@ void	free_stacks(t_stacks *stacks)
 		free(stacks->b->data);
 		free(stacks->b);
 	}
+	free(values);
 }
 
 int	is_empty(t_stack *stack)

@@ -46,6 +46,7 @@ typedef struct s_main
 	int		*values;
 	int		size;
 	int		i;
+	int		*sorted;
 }			t_main;
 
 #endif // STRUCT_H

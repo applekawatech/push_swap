@@ -12,31 +12,15 @@
 
 #include "util.h"
 
-void	index_array(int *arr, int size)
+void	index_array(int *arr, int *sorted, int size)
 {
-	int	*sorted;
 	int	i;
-	int	j;
 
-	sorted = copy_array(arr, size);
-	if (!sorted)
-		return ;
-	quick_sort(sorted, 0, size - 1);
 	i = 0;
 	while (i < size)
 	{
 		arr[i] = find_index(sorted, size, arr[i]);
 		i++;
-	}
-	j = 0;
-	while (j < size - 1)
-	{
-		if (sorted[j] == sorted[j + 1])
-		{
-			free(sorted);
-			(write(2, "Error\n", 6), exit(1));
-		}
-		j++;
 	}
 	free(sorted);
 }

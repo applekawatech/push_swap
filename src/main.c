@@ -26,9 +26,10 @@ int	main(int argc, char **argv)
 	main.i = -1;
 	while (++main.i < main.size)
 		main.values[main.i] = ft_atoi(argv[main.i + 1]);
+	main.sorted = check_duplicate(main.values, main.size);
 	if (is_sorted_raw(main.values, main.size))
 		return (free(main.values), 0);
-	index_array(main.values, main.size);
+	index_array(main.values, main.sorted, main.size);
 	init_stacks(&stacks, main.size);
 	while (--main.i >= 0)
 		push(stacks.a, main.values[main.i]);
@@ -36,7 +37,6 @@ int	main(int argc, char **argv)
 		sort_small(&stacks);
 	else
 		radix_sort(&stacks);
-	free(main.values);
-	free_stacks(&stacks);
+	free_stacks(&stacks, main.values);
 	return (0);
 }
