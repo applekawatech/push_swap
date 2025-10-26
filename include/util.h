@@ -6,7 +6,7 @@
 /*   By: hkawaguc <hkawaguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:37:15 by hkawaguc          #+#    #+#             */
-/*   Updated: 2025/10/16 17:42:05 by hkawaguc         ###   ########.fr       */
+/*   Updated: 2025/10/23 16:27:04 by hkawaguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	push(t_stack *stack, int value);
 int		find_min_index(t_stack *a);
 void	rotate_to_top(t_stack *a, int idx);
 int		is_sorted_raw(int *arr, int size);
-int		*check_duplicate(int *sorted, int size);
+int		*check_duplicate(int *sorted, int size, int **sorted_out);
 
 /* util_str.c */
 int		ft_strcmp(const char *s1, const char *s2);

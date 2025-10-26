@@ -26,9 +26,9 @@ int	main(int argc, char **argv)
 	main.i = -1;
 	while (++main.i < main.size)
 		main.values[main.i] = ft_atoi(argv[main.i + 1]);
-	main.sorted = check_duplicate(main.values, main.size);
+	main.sorted = check_duplicate(main.values, main.size, &main.sorted);
 	if (is_sorted_raw(main.values, main.size))
-		return (free(main.values), 0);
+		return (free(main.values), free(main.sorted), 0);
 	index_array(main.values, main.sorted, main.size);
 	init_stacks(&stacks, main.size);
 	while (--main.i >= 0)

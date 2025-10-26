@@ -81,14 +81,14 @@ int	is_sorted_raw(int *arr, int size)
 	return (1);
 }
 
-int	*check_duplicate(int *arr, int size)
+int	*check_duplicate(int *arr, int size, int **sorted_out)
 {
 	int	*sorted;
 	int	j;
 
 	sorted = copy_array(arr, size);
 	if (!sorted)
-		return (NULL);
+		return (-1);
 	quick_sort(sorted, 0, size - 1);
 	j = 0;
 	while (j < size - 1)
@@ -96,9 +96,11 @@ int	*check_duplicate(int *arr, int size)
 		if (sorted[j] == sorted[j + 1])
 		{
 			free(sorted);
-			(write(2, "Error\n", 6), exit(1));
+			*sorted_out = NULL;
+			return (1);
 		}
 		j++;
 	}
-	return (sorted);
+	*sorted_out = sorted;
+	return (0);
 }
